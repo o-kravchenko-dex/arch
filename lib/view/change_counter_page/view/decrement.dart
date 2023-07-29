@@ -1,11 +1,11 @@
 import 'package:arch/bloc/counter_bloc.dart';
 import 'package:arch/router/router.dart';
-import 'package:arch/view/change_counter_page/increment/increment.dart';
+import 'package:arch/view/change_counter_page/view/change_counter_base_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-class DecrementPageView extends IncrementPageView {
+class DecrementPageView extends ChangeCounterBaseView {
   const DecrementPageView({super.key, required super.title});
 
   @override
@@ -15,19 +15,6 @@ class DecrementPageView extends IncrementPageView {
         },
         tooltip: 'Decrement',
         child: const Icon(Icons.remove),
-      );
-
-  @override
-  PreferredSizeWidget appBar(BuildContext context) => AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(title),
-        leading: BackButton(
-          onPressed: () {
-            if( context.canPop()) {
-              context.pop();
-            }
-          },
-        ),
       );
 
   @override
